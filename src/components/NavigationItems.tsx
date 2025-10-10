@@ -1,5 +1,5 @@
 "use client";
-import { NAVIGATION_ITEMS } from "@/lib/constant";
+import { NAVIGATION_ITEMS } from "@/lib/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,9 +18,7 @@ function NavigationItems() {
 				<li key={href}>
 					<Link
 						href={href}
-						className={`hover:text-yellow-500 transition-colors ${
-							isActive(href) ? "text-gray-100" : ""
-						}`}
+						className={`hover:text-yellow-500 transition-colors ${isActive(href) ? "text-gray-100" : ""}`}
 					>
 						{label}
 					</Link>

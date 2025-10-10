@@ -15,8 +15,7 @@ const geistMono: NextFontWithVariable = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: "Signalist",
-	description:
-		"Track real-time stock prices, get personalized alerts and explore detailed company insights.",
+	description: "Track real-time stock prices, get personalized alerts and explore detailed company insights.",
 };
 
 export default function RootLayout({
@@ -26,11 +25,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="dark">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				{children}
-			</body>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
 		</html>
 	);
 }

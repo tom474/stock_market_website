@@ -22,17 +22,14 @@ const UserDropDown = () => {
 	};
 
 	const user: Record<string, string> = {
-		name: "Cuong",
+		name: "Cuong Tran",
 		email: "cuongtran@gmail.com",
 	};
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button
-					variant="ghost"
-					className="flex items-center gap-3 text-gray-4 hover:text-yellow-500"
-				>
+				<Button variant="ghost" className="flex items-center gap-3 text-gray-4 hover:text-yellow-500">
 					<Avatar className="h-8 w-8">
 						<AvatarImage src="https://avatars.githubusercontent.com/u/125862540?v=4" />
 						<AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
@@ -40,9 +37,7 @@ const UserDropDown = () => {
 						</AvatarFallback>
 					</Avatar>
 					<div className="hidden md:flex flex-col items-start">
-						<span className="text-base font-medium text-gray-400">
-							{user.name}
-						</span>
+						<span className="text-base font-medium text-gray-400">{user.name}</span>
 					</div>
 				</Button>
 			</DropdownMenuTrigger>
@@ -56,12 +51,8 @@ const UserDropDown = () => {
 							</AvatarFallback>
 						</Avatar>
 						<div className="flex flex-col">
-							<span className="text-base font-medium text-gray-400">
-								{user.name}
-							</span>
-							<span className="text-sm text-gray-500">
-								{user.email}
-							</span>
+							<span className="text-base font-medium text-gray-400">{user.name}</span>
+							<span className="text-sm text-gray-500">{user.email}</span>
 						</div>
 					</div>
 				</DropdownMenuLabel>
