@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Signalist – AI-Powered Stock Market App
 
-## Getting Started
+A modern, AI-powered stock market web application built with **Next.js**, **Shadcn**, **Better Auth**, and **Inngest**. Signalist allows users to track real-time stock prices, set personalized alerts, explore detailed company insights, and manage their watchlists. The admin dashboard enables managing stocks, publishing news, and monitoring user activity, while event-driven workflows automate alerts, AI-driven daily digests, earnings notifications, and sentiment analysis — perfect for developers who want a dynamic, real-time financial platform.
 
-First, run the development server:
+If you're getting started and need assistance or face any bugs, join our active **Discord community** with over **50k+ members** — a great place where developers help each other out.
+
+## Tech Stack
+
+- **Next.js** – A React framework for building fast, scalable web apps with SSR and API routes.  
+- **TypeScript** – Adds static typing for improved code quality and maintainability.  
+- **Tailwind CSS** – Utility-first CSS framework for rapid, responsive UI development.  
+- **Shadcn** – Customizable, accessible React component library for modern interfaces.  
+- **Better Auth** – Framework-agnostic authentication and authorization library supporting email, social, and multi-factor login.  
+- **Inngest** – Event-driven workflow platform for automated alerts, notifications, and AI-powered tasks.  
+- **MongoDB** – Flexible NoSQL database for scalable, JSON-like document storage.  
+- **Finnhub API** – Real-time financial data API for stock, forex, and crypto market data.  
+- **Nodemailer** – Node.js library for sending emails and notifications reliably.  
+- **CodeRabbit** – AI-powered GitHub code review assistant ensuring consistent code quality.
+
+## Features
+
+- **Stock Dashboard**: Track real-time stock prices with interactive charts and filter by industry, performance, or market cap.  
+- **Powerful Search**: Quickly find stocks using an intelligent search system.  
+- **Watchlist & Alerts**: Create personalized watchlists, set alerts, and receive instant email notifications.  
+- **Company Insights**: Access detailed financial data, analyst ratings, and sentiment analysis.  
+- **Real-Time Workflows**: Automate processes like price updates, report generation, and AI-driven insights via Inngest.  
+- **AI-Powered Alerts & Summaries**: Get personalized market summaries, daily digests, and earnings notifications.  
+- **Customizable Notifications**: Fine-tune alerts based on preferences and watchlists.  
+- **Analytics & Insights**: Understand user behavior, stock trends, and engagement metrics for data-driven decisions.  
+
+## Quick Start
+
+> Follow these steps to set up the project locally on your machine.
+
+Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/adrianhajdin/signalist_stock-tracker-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd signalist_stock-tracker-app
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env` file in the root folder and set up environment variables
 
-## Learn More
+```
+NODE_ENV='development'
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# FINNHUB
+NEXT_PUBLIC_NEXT_PUBLIC_FINNHUB_API_KEY=
+FINNHUB_BASE_URL=https://finnhub.io/api/v1
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# MONGODB
+MONGODB_URI=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# BETTER AUTH
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
 
-## Deploy on Vercel
+# GEMINI
+GEMINI_API_KEY=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# NODEMAILER
+NODEMAILER_EMAIL=
+NODEMAILER_PASSWORD=
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replace the placeholder values with your real credentials. You can get these by signing up at: [**MongoDB**](https://www.mongodb.com/products/platform/atlas-database), [**Gemini**](https://aistudio.google.com/prompts/new_chat?utm_source=chatgpt.com), [**Inngest**](https://jsm.dev/stocks-inggest), [**Finnhub**](https://finnhub.io).
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the application
+```bash
+npm run dev
+npx inngest-cli@latest dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
