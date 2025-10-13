@@ -4,11 +4,14 @@ import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
+import { signUpWithEmail } from "@/lib/actions/auth.actions";
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
-import { JSX } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-const SignUp = (): JSX.Element => {
+const SignUp = () => {
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
@@ -27,17 +30,22 @@ const SignUp = (): JSX.Element => {
 		mode: "onBlur",
 	});
 
-	const onSubmit = async (data: SignUpFormData): Promise<void> => {
+	const onSubmit = async (data: SignUpFormData) => {
 		try {
-			console.log(data);
-		} catch (error) {
-			console.error(error);
+			const result = await signUpWithEmail(data);
+			if (result.success) router.push("/");
+		} catch (e) {
+			console.error(e);
+			toast.error("Sign up failed.", {
+				description: e instanceof Error ? e.message : "Failed to create an account.",
+			});
 		}
 	};
 
 	return (
 		<>
 			<h1 className="form-title">Sign Up & Personalize</h1>
+
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 				<InputField
 					name="fullName"
@@ -51,7 +59,7 @@ const SignUp = (): JSX.Element => {
 				<InputField
 					name="email"
 					label="Email"
-					placeholder="Enter your email address"
+					placeholder="Enter your email"
 					register={register}
 					error={errors.email}
 					validation={{
@@ -112,5 +120,4 @@ const SignUp = (): JSX.Element => {
 		</>
 	);
 };
-
 export default SignUp;

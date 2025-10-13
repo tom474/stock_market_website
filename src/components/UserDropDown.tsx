@@ -1,5 +1,7 @@
 "use client";
+import NavItems from "@/components/NavItems";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,23 +10,16 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { signOut } from "@/lib/actions/auth.actions";
 import { LogOut } from "lucide-react";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
-import { JSX } from "react";
-import NavigationItems from "./NavigationItems";
-import { Button } from "./ui/button";
 
-const UserDropDown = (): JSX.Element => {
-	const router: AppRouterInstance = useRouter();
+const UserDropdown = ({ user, initialStocks }: { user: User; initialStocks: StockWithWatchlistStatus[] }) => {
+	const router = useRouter();
 
-	const handleSignOut = async (): Promise<void> => {
+	const handleSignOut = async () => {
+		await signOut();
 		router.push("/sign-in");
-	};
-
-	const user: Record<string, string> = {
-		name: "Cuong Tran",
-		email: "cuongtran@gmail.com",
 	};
 
 	return (
@@ -67,11 +62,11 @@ const UserDropDown = (): JSX.Element => {
 				</DropdownMenuItem>
 				<DropdownMenuSeparator className="hidden sm:block bg-gray-600" />
 				<nav className="sm:hidden">
-					<NavigationItems />
+					<NavItems initialStocks={initialStocks} />
 				</nav>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
 };
 
-export default UserDropDown;
+export default UserDropdown;

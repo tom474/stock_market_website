@@ -1,13 +1,13 @@
 "use client";
-import { NAVIGATION_ITEMS } from "@/lib/constants";
+import SearchCommand from "@/components/SearchCommand";
+import { NAV_ITEMS } from "@/lib/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { JSX } from "react";
 
-const NavigationItems = (): JSX.Element => {
-	const pathname: string = usePathname();
+const NavItems = ({ initialStocks }: { initialStocks: StockWithWatchlistStatus[] }) => {
+	const pathname = usePathname();
 
-	const isActive = (path: string): boolean => {
+	const isActive = (path: string) => {
 		if (path === "/") return pathname === "/";
 
 		return pathname.startsWith(path);
@@ -15,7 +15,14 @@ const NavigationItems = (): JSX.Element => {
 
 	return (
 		<ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-			{NAVIGATION_ITEMS.map(({ href, label }) => {
+			{NAV_ITEMS.map(({ href, label }) => {
+				if (href === "/search")
+					return (
+						<li key="search-trigger">
+							<SearchCommand renderAs="text" label="Search" initialStocks={initialStocks} />
+						</li>
+					);
+
 				return (
 					<li key={href}>
 						<Link
@@ -33,4 +40,4 @@ const NavigationItems = (): JSX.Element => {
 	);
 };
 
-export default NavigationItems;
+export default NavItems;

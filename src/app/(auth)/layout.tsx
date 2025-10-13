@@ -1,14 +1,21 @@
+import { auth } from "@/lib/better-auth/auth";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+	const session = await auth.api.getSession({ headers: await headers() });
+
+	if (session?.user) redirect("/");
+
 	return (
 		<main className="auth-layout">
 			<section className="auth-left-section scrollbar-hide-default">
 				<Link href="/" className="auth-logo">
 					<Image
 						src="/assets/icons/logo.svg"
-						alt="Signalist Logo"
+						alt="Signalist logo"
 						width={140}
 						height={32}
 						className="h-8 w-auto"
@@ -22,18 +29,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 				<div className="z-10 relative lg:mt-4 lg:mb-16">
 					<blockquote className="auth-blockquote">
 						Signalist turned my watchlist into a winning list. The alerts are spot-on, and I feel more
-						confident making moves in the market.
+						confident making moves in the market
 					</blockquote>
 					<div className="flex items-center justify-between">
 						<div>
-							<cite className="auto-testimonial-author">- Cuong Tran</cite>
+							<cite className="auth-testimonial-author">- Cuong Tran</cite>
 							<p className="max-md:text-xs text-gray-500">Retail Investor</p>
 						</div>
 						<div className="flex items-center gap-0.5">
 							{[1, 2, 3, 4, 5].map((star) => (
 								<Image
 									src="/assets/icons/star.svg"
-									alt="tar"
+									alt="Star"
 									key={star}
 									width={20}
 									height={20}
@@ -57,5 +64,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 		</main>
 	);
 };
-
 export default Layout;
