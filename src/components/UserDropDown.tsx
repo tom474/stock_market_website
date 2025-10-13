@@ -11,10 +11,11 @@ import {
 import { LogOut } from "lucide-react";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
+import { JSX } from "react";
 import NavigationItems from "./NavigationItems";
 import { Button } from "./ui/button";
 
-const UserDropDown = () => {
+const UserDropDown = (): JSX.Element => {
 	const router: AppRouterInstance = useRouter();
 
 	const handleSignOut = async (): Promise<void> => {

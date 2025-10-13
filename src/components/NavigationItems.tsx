@@ -2,8 +2,9 @@
 import { NAVIGATION_ITEMS } from "@/lib/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { JSX } from "react";
 
-function NavigationItems() {
+const NavigationItems = (): JSX.Element => {
 	const pathname: string = usePathname();
 
 	const isActive = (path: string): boolean => {
@@ -14,18 +15,22 @@ function NavigationItems() {
 
 	return (
 		<ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-			{NAVIGATION_ITEMS.map(({ href, label }) => (
-				<li key={href}>
-					<Link
-						href={href}
-						className={`hover:text-yellow-500 transition-colors ${isActive(href) ? "text-gray-100" : ""}`}
-					>
-						{label}
-					</Link>
-				</li>
-			))}
+			{NAVIGATION_ITEMS.map(({ href, label }) => {
+				return (
+					<li key={href}>
+						<Link
+							href={href}
+							className={`hover:text-yellow-500 transition-colors ${
+								isActive(href) ? "text-gray-100" : ""
+							}`}
+						>
+							{label}
+						</Link>
+					</li>
+				);
+			})}
 		</ul>
 	);
-}
+};
 
 export default NavigationItems;

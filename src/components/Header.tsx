@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { JSX } from "react";
 import NavigationItems from "./NavigationItems";
 import UserDropDown from "./UserDropDown";
 
-const Header = () => {
+const Header = (): JSX.Element => {
 	return (
 		<header className="sticky top-0 header">
 			<div className="container header-wrapper">
