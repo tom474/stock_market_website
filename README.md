@@ -1,21 +1,12 @@
-# Signalist – AI-Powered Stock Market App
+# Stock Market Website
 
-A modern, AI-powered stock market web application built with **Next.js**, **Shadcn**, **Better Auth**, and **Inngest**. Signalist allows users to track real-time stock prices, set personalized alerts, explore detailed company insights, and manage their watchlists. The admin dashboard enables managing stocks, publishing news, and monitoring user activity, while event-driven workflows automate alerts, AI-driven daily digests, earnings notifications, and sentiment analysis — perfect for developers who want a dynamic, real-time financial platform.
-
-If you're getting started and need assistance or face any bugs, join our active **Discord community** with over **50k+ members** — a great place where developers help each other out.
+A modern, AI-powered stock market web application built with **Next.js**, **Shadcn**, **Better Auth**, and **Inngest**. This website allows users to track real-time stock prices, set personalized alerts, explore detailed company insights, and manage their watchlists. The admin dashboard enables managing stocks, publishing news, and monitoring user activity, while event-driven workflows automate alerts, AI-driven daily digests, earnings notifications, and sentiment analysis - perfect for developers who want a dynamic, real-time financial platform.
 
 ## Tech Stack
 
-- **Next.js** – A React framework for building fast, scalable web apps with SSR and API routes.  
-- **TypeScript** – Adds static typing for improved code quality and maintainability.  
-- **Tailwind CSS** – Utility-first CSS framework for rapid, responsive UI development.  
-- **Shadcn** – Customizable, accessible React component library for modern interfaces.  
-- **Better Auth** – Framework-agnostic authentication and authorization library supporting email, social, and multi-factor login.  
-- **Inngest** – Event-driven workflow platform for automated alerts, notifications, and AI-powered tasks.  
-- **MongoDB** – Flexible NoSQL database for scalable, JSON-like document storage.  
-- **Finnhub API** – Real-time financial data API for stock, forex, and crypto market data.  
-- **Nodemailer** – Node.js library for sending emails and notifications reliably.  
-- **CodeRabbit** – AI-powered GitHub code review assistant ensuring consistent code quality.
+- **Client:** React.js, Tailwind CSS, Shadcn, TradingView
+- **Server:** Inngest, Better Auth, Finnhub API
+- **Database:** MongoDB
 
 ## Features
 
